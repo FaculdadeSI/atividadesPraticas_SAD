@@ -1,17 +1,19 @@
-body {
+*{
     margin: 0;
     padding: 0;
+}
+
+body {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
 
 h1 {
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .input-container {
@@ -27,6 +29,10 @@ label {
 
 input[type="file"] {
     padding: 5px;
+}
+
+img{
+    display: none;
 }
 
 canvas {
