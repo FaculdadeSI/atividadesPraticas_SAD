@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Desenhar as conexões entre os nós
                 drawLinks(ctx, degrees, connections);
+
+                // Desenhar o gráfico com os graus de cada nó na tela
+                drawBarChart(degrees);
             };
 
             // Lê o conteúdo do arquivo como texto
@@ -117,5 +120,34 @@ function drawLinks(ctx, degrees, connections) {
             ctx.strokeStyle = "black";
             ctx.stroke();
         }
+    });
+}
+
+// Desenhar o gráfico de barras
+function drawBarChart(degrees) {
+    google.charts.load('current', { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(() => {
+        const data = new google.visualization.DataTable();
+        data.addColumn('string', 'Nó');
+        data.addColumn('number', 'Grau');
+
+        Object.entries(degrees).forEach(([node, { degree }]) => {
+            data.addRow([node, degree]);
+        });
+
+        const options = {
+            title: 'Graus dos Nós',
+            width: 400,
+            height: 300,
+            hAxis: {
+                title: 'Nós',
+            },
+            vAxis: {
+                title: 'Grau',
+            },
+        };
+
+        const chart = new google.visualization.ColumnChart(document.getElementById('chart'));
+        chart.draw(data, options);
     });
 }
