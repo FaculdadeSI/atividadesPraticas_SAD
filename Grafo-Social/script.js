@@ -34,15 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Definindo configurações para desenhar os nós no canvas
                 const nodeRadius = 20 // Raio das bolinhas 
-                const nodeColor = "#e3ffdb" // Cor verde por enquanto
                 const nameColor = "black" 
-                drawNodes(ctx, degrees, nodeRadius, nodeColor, nameColor);
+                const nodeColors = generateNodeColors(Object.keys(degrees)); // Gerar cores únicas para cada nó
+                drawNodes(ctx, degrees, nodeRadius, nodeColors, nameColor);
 
                 // Desenhar as conexões entre os nós
                 drawLinks(ctx, degrees, connections);
 
                 // Desenhar o gráfico com os graus de cada nó na tela
-                drawBarChart(degrees);
+                drawBarChart(degrees, nodeColors);
             };
 
             // Lê o conteúdo do arquivo como texto
@@ -62,6 +62,15 @@ function getNodesDegree(connections) {
     });
 
     return degreeCount; 
+}
+
+// Gerar cores únicas para cada nó/nome
+function generateNodeColors(nodes) {
+    const colors = {};
+    nodes.forEach(node => {
+        colors[node] = `#${Math.floor(Math.random() * 16777215).toString(16)}`; // Cores aleatórias
+    });
+    return colors;
 }
 
 // Desenhar os nós no canvas em um círculo
@@ -88,7 +97,7 @@ function drawNodes(ctx, degrees, nodeRadius, nodeColor, nameColor) {
         // Desenha a bolinha
         ctx.beginPath();
         ctx.arc(x, y, nodeRadius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = nodeColor;
+        ctx.fillStyle = nodeColor[node];
         ctx.fill();
         ctx.strokeStyle = "#343a40";
         ctx.stroke();
@@ -123,16 +132,17 @@ function drawLinks(ctx, degrees, connections) {
     });
 }
 
-// Desenhar o gráfico de barras
-function drawBarChart(degrees) {
+// Desenhar o gráfico de barras, cada coluna tem uma cor 
+function drawBarChart(degrees, nodeColors) {
     google.charts.load('current', { packages: ['corechart'] });
     google.charts.setOnLoadCallback(() => {
         const data = new google.visualization.DataTable();
         data.addColumn('string', 'Nó');
         data.addColumn('number', 'Grau');
+        data.addColumn({ type: 'string', role: 'style' }); // Coluna para cores
 
         Object.entries(degrees).forEach(([node, { degree }]) => {
-            data.addRow([node, degree]);
+            data.addRow([node, degree, `color: ${nodeColors[node]}`]); // Adiciona cor personalizada
         });
 
         const options = {
