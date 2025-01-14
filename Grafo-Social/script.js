@@ -78,8 +78,8 @@ function generateNodeColors(nodes) {
     return colors;
 }
 
-// Desenhar os nós no canvas em um círculo
-function drawNodes(ctx, degrees, nodeRadius, nodeColor, nameColor) {
+// Calcular a posição dos nós para que eles formem um círculo
+function calculateNodePositions(degrees, canvas) {
     const width = canvas.width;
     const height = canvas.height;
 
@@ -90,18 +90,24 @@ function drawNodes(ctx, degrees, nodeRadius, nodeColor, nameColor) {
     const centerY = height / 2;
     const graphRadius = Math.min(width, height) / 2 - 50; // Raio do círculo do grafo
 
-    // Calcula a posição de cada nó de forma circular
+    // Calcula a posição de cada nó
     nodes.forEach((node, index) => {
         const angle = (2 * Math.PI / nodeCount) * index; // Ângulo para a posição
         const x = centerX + graphRadius * Math.cos(angle);
         const y = centerY + graphRadius * Math.sin(angle);
+        degrees[node] = { x, y, degree: degrees[node] }; // Atualiza o objeto degrees com as coordenadas
+    });
+}
 
-        // Armazena as coordenadas no objeto degrees
-        degrees[node] = { x, y, degree: degrees[node] };
+// Desenhar os nós no canvas
+function drawNodes(ctx, degrees, nodeRadius, nodeColor, nameColor) {
+    Object.keys(degrees).forEach((node) => {
+        const { x, y, degree } = degrees[node];
+        const newNodeRadius = nodeRadius + degree; // Tamanho da bolinha será maior conforme o grau do nó
 
         // Desenha a bolinha
         ctx.beginPath();
-        ctx.arc(x, y, nodeRadius, 0, 2 * Math.PI, false);
+        ctx.arc(x, y, newNodeRadius, 0, 2 * Math.PI, false);
         ctx.fillStyle = nodeColor[node];
         ctx.fill();
         ctx.strokeStyle = "#343a40";
