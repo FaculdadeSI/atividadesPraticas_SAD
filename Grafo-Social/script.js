@@ -69,6 +69,11 @@ function generateNodeColors(nodes) {
     const colors = {};
     nodes.forEach(node => {
         colors[node] = `#${Math.floor(Math.random() * 16777215).toString(16)}`; // Cores aleatórias
+        let color;
+        do {
+            color = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0")}`;
+        } while (color.toLowerCase() === "#000000"); // Evitar cor preta, pois não é possível criar uma coluna com essa cor no gráfico
+        colors[node] = color;
     });
     return colors;
 }
