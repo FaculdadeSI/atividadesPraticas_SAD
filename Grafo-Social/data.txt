@@ -1,5 +1,16 @@
 Pedro-Carla;
 Pedro-Maria;
-Maria - Carla;
+Maria-Carla;
 Maria-Ricardo;
 Ricardo-Carla;
+Joao-Ana;
+Carlos-Bia;
+Bia-Pedro;
+Maria-Ana;
+Ana-Maria;
+Maria-Carlos;
+Pedro-Ana;
+Tomas-Laura;
+Thiago-Paulo;
+Paulo-Maria;
+Iago-Carla;

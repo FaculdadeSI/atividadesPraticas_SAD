@@ -33,13 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Grau dos nós:", JSON.stringify(degrees, null, 2));
 
                 // Definindo configurações para desenhar os nós no canvas
-                const nodeRadius = 20 // Raio das bolinhas 
+                const defaultRadius = 20 // Raio das bolinhas 
                 const nameColor = "black" 
                 const nodeColors = generateNodeColors(Object.keys(degrees)); // Gerar cores únicas para cada nó
-                drawNodes(ctx, degrees, nodeRadius, nodeColors, nameColor);
+
+                // Posicionar e desenhar os nós
+                calculateNodePositions(degrees, canvas)
+                drawNodes(ctx, degrees, defaultRadius, nodeColors, nameColor);
 
                 // Desenhar as conexões entre os nós
-                drawLinks(ctx, degrees, connections);
+                drawLinks(ctx, degrees, connections, defaultRadius);
 
                 // Desenhar o gráfico com os graus de cada nó na tela
                 drawBarChart(degrees, nodeColors);
@@ -123,18 +126,24 @@ function drawNodes(ctx, degrees, nodeRadius, nodeColor, nameColor) {
 }
 
 // Desenhar as conexões entre os nós
-function drawLinks(ctx, degrees, connections) {
+function drawLinks(ctx, degrees, connections, defaultRadius) {
     connections.forEach(({ node1, node2 }) => {
         const startNode = degrees[node1];
         const endNode = degrees[node2];
 
-        if (startNode && endNode) { // Verifica se as coordenadas estão definidas
+        // Verifica se as coordenadas estão definidas
+        if (startNode && endNode) { 
             ctx.beginPath();
             const angle = Math.atan2(endNode.y - startNode.y, endNode.x - startNode.x);
-            const startX = startNode.x + 20 * Math.cos(angle);
-            const startY = startNode.y + 20 * Math.sin(angle);
-            const endX = endNode.x - 20 * Math.cos(angle);
-            const endY = endNode.y - 20 * Math.sin(angle);
+
+            const startRadius = defaultRadius + startNode.degree; // Tamanho do nó inicial
+            const endRadius = defaultRadius + endNode.degree; // Tamanho do nó final
+
+            const startX = startNode.x + startRadius * Math.cos(angle);
+            const startY = startNode.y + startRadius * Math.sin(angle);
+            const endX = endNode.x - endRadius * Math.cos(angle);
+            const endY = endNode.y - endRadius * Math.sin(angle);
+            
             ctx.moveTo(startX, startY);
             ctx.lineTo(endX, endY);
             ctx.strokeStyle = "black";
