@@ -32,6 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const degrees = getNodesDegree(connections);
                 console.log("Grau dos nós:", JSON.stringify(degrees, null, 2));
 
+                // Separar os nós em dois dicionários
+                const { averageDegree, aboveAverageNodes, belowAverageNodes } = separateNodesByDegree(degrees);
+                console.log("Média dos graus:", averageDegree);
+                console.log("Nós acima da média:", JSON.stringify(aboveAverageNodes, null, 2));
+                console.log("Nós abaixo ou iguais à média:", JSON.stringify(belowAverageNodes, null, 2));
+
                 // Definindo configurações para desenhar os nós no canvas
                 const defaultRadius = 20 // Raio das bolinhas 
                 const nameColor = "black" 
@@ -65,6 +71,25 @@ function getNodesDegree(connections) {
     });
 
     return degreeCount; 
+}
+
+// Separar os nós em dois dicionários com base na média de graus de todos os nós
+function separateNodesByDegree(degrees) {
+    const totalDegrees = Object.values(degrees).reduce((sum, degree) => sum + degree, 0);
+    const averageDegree = totalDegrees / Object.keys(degrees).length;
+
+    const aboveAverageNodes = {}; 
+    const belowAverageNodes = {}; 
+
+    for (const [node, degree] of Object.entries(degrees)) {
+        if (degree > averageDegree) {
+            aboveAverageNodes[node] = degree;
+        } else {
+            belowAverageNodes[node] = degree;
+        }
+    }
+
+    return { averageDegree, aboveAverageNodes, belowAverageNodes }; // Retorna os dois dicionários
 }
 
 // Gerar cores únicas para cada nó/nome
