@@ -1,43 +1,139 @@
-*{
-    margin: 0;
-    padding: 0;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+  font-family: "Roboto", sans-serif;
+  background-color: #f2f3f5; /* Cinza pastel */
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-h1 {
-    margin-bottom: 20px;
-    margin-top: 20px;
+header {
+  background-color: #d4edda; /* Verde pastel */
+  color: #444;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #c3e6cb;
 }
 
-.input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-label {
-    margin-bottom: 10px;
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
-input[type="file"] {
-    padding: 5px;
+.github-icon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
 }
 
-.main-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-canvas {
-    border: 1px solid #ccc;
-    background-color: #fff;
+main {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.upload-section {
+  background: #ffffff; /* Branco */
+  padding: 10px; /* Diminui o padding para reduzir a altura */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px; /* Reduzido para não ocupar muito espaço */
+  border: 2px solid #95c98d; /* Verde pastel */
+  width: 60%;
+  margin: 0 auto; /* Centraliza a seção */
+  display: flex; /* Flexbox para alinhar tudo em linha */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  justify-content: space-between; /* Espaça os itens igualmente */
+  white-space: nowrap; /* Evita quebra de linha no texto */
+}
+
+.upload-section label {
+  font-size: 1rem;
+  margin-right: 15px; /* Adiciona um espaço entre o label e o input */
+  color: #444;
+  font-weight: bold;
+  white-space: nowrap; /* Impede a quebra de linha no rótulo */
+}
+
+.upload-section input[type="file"] {
+  padding: 6px; /* Menos padding para reduzir a altura */
+  font-size: 1rem;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  /* width: 70%; Limita a largura do input */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-section input[type="file"]:hover {
+  border-color: #95c98d; /* Verde pastel mais escuro */
+}
+
+.content-section {
+  display: flex;
+  justify-content: space-between; /* Certifique-se de que eles fiquem lado a lado */
+  gap: 20px; /* Espaçamento entre o canvas e o gráfico */
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+#canvas {
+  flex: 1;
+  max-width: 60%; /* Limita a largura máxima do canvas */
+  min-width: 300px; /* Garante que o canvas não fique muito pequeno */
+  height: 500px; /* Altura do canvas */
+  border: 2px solid #95c98d; /* Verde pastel */
+  border-radius: 8px;
+  background: #ffffff; /* Branco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#chart {
+  flex: 1;
+  max-width: 40%; /* Limita a largura máxima do gráfico */
+  min-width: 300px; /* Garante que o gráfico não fique muito pequeno */
+  height: 350px; /* Reduz a altura do gráfico */
+  border: 2px solid #95c98d; /* Verde pastel */
+  border-radius: 8px;
+  background: #ffffff; /* Branco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Flexbox para centralizar */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+footer {
+  background-color: #d4edda; /* Verde pastel */
+  color: #444;
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #c3e6cb;
+}
+
+footer a {
+  color: #155724; /* Verde escuro */
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #0c4227;
 }
