@@ -253,7 +253,7 @@ function drawBarChart(nodeDegrees, nodeColors) {
     // Configurações do gráfico
     const options = {
       title: "Graus dos Nós",
-      width: 500,
+      width: 400,
       height: 350,
       hAxis: {
         title: "Nós",

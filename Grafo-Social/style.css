@@ -100,9 +100,9 @@ canvas {
 
 #chart {
   flex: 1;
-  max-width: 40%; /* Largura máxima de 40% */
-  min-width: 520px; /* Largura mínima de 300px */
-  height: 360px; /* Altura do gráfico */
+  max-width: 40%; 
+  min-width: 400px; 
+  height: 360px; 
   padding-top: 5px;
   border: 1px solid #ccc;
   background-color: #ffffff;
