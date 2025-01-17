@@ -1,155 +1,131 @@
-/* Reset básico para garantir que o estilo seja consistente em diferentes navegadores */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Garante que o padding e a borda não afetem a largura do elemento */
+  box-sizing: border-box;
 }
 
-/* Estilo para o corpo da página */
 body {
-  font-family: "Roboto", sans-serif; /* Definindo a fonte para o corpo */
-  background-color: #f2f3f5; /* Cor de fundo cinza pastel */
-  color: #444; /* Cor do texto */
-  display: flex; /* Usando flexbox para alinhar os itens */
-  flex-direction: column; /* Colocando os itens na direção vertical */
-  min-height: 100vh; /* Garantindo que o corpo ocupe pelo menos a altura total da tela */
+  font-family: "Roboto", sans-serif;
+  background-color: #f2f3f5;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Estilo do cabeçalho da página */
 header {
-  background-color: #d4edda; /* Cor de fundo verde pastel */
-  color: #444; /* Cor do texto */
-  padding: 20px 0; /* Espaçamento interno superior e inferior */
-  text-align: center; /* Alinha o texto ao centro */
-  border-bottom: 1px solid #c3e6cb; /* Linha sutil separando o cabeçalho do conteúdo */
+  background-color: #d4edda;
+  color: #444;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #c3e6cb;
 }
 
-/* Estilo para o título no cabeçalho */
 header h1 {
-  font-size: 2.5rem; /* Tamanho grande para o título */
-  margin-bottom: 10px; /* Espaço abaixo do título */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-/* Estilo para o parágrafo de descrição no cabeçalho */
-header p {
-  font-size: 1.2rem; /* Tamanho do texto de descrição */
-  margin-bottom: 0; /* Remove o espaçamento inferior */
-}
-
-/* Estilo para o ícone do GitHub */
 .github-icon {
-  position: absolute; /* Coloca o ícone em uma posição absoluta em relação ao cabeçalho */
-  top: 10px; /* Distância de 10px do topo */
-  right: 20px; /* Distância de 20px da borda direita */
+  position: absolute;
+  top: 10px;
+  right: 20px;
 }
 
-/* Container centralizado para garantir que o conteúdo tenha uma largura máxima */
 .container {
-  width: 90%; /* Largura de 90% da tela */
-  max-width: 1200px; /* Largura máxima de 1200px */
-  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Estilo do conteúdo principal */
 main {
-  flex: 1; /* Faz o conteúdo principal preencher o espaço restante */
-  padding: 20px 0; /* Espaçamento superior e inferior */
+  flex: 1;
+  padding: 20px 0;
 }
 
-/* Seção para o upload de arquivos */
 .upload-section {
-  background: #ffffff; /* Cor de fundo branca */
-  padding: 10px; /* Espaçamento interno */
-  border-radius: 8px; /* Bordas arredondadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor da seção */
-  text-align: center; /* Alinha o conteúdo ao centro */
-  margin-bottom: 20px; /* Espaço abaixo da seção */
-  border: 2px solid #95c98d; /* Borda verde pastel */
-  width: 60%; /* Largura de 60% da tela */
-  margin: 0 auto; /* Centraliza a seção */
-  display: flex; /* Flexbox para o alinhamento do conteúdo */
-  align-items: center; /* Alinha verticalmente os itens */
-  justify-content: space-between; /* Espaça igualmente os itens dentro da seção */
-  white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+  border: 2px solid #95c98d;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
 }
 
-/* Estilo para o rótulo dentro da seção de upload */
 .upload-section label {
-  font-size: 1rem; /* Tamanho da fonte */
-  margin-right: 15px; /* Espaço à direita do rótulo */
-  color: #444; /* Cor do texto */
-  font-weight: bold; /* Deixa o texto mais forte */
-  white-space: nowrap; /* Impede quebra de linha no rótulo */
+  font-size: 1rem;
+  margin-right: 15px;
+  color: #444;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-/* Estilo para o campo de input de arquivos */
 .upload-section input[type="file"] {
-  padding: 6px; /* Espaçamento interno */
-  font-size: 1rem; /* Tamanho da fonte */
-  border: 1px solid #c3e6cb; /* Borda verde pastel */
-  border-radius: 5px; /* Bordas arredondadas */
-  cursor: pointer; /* Modifica o cursor ao passar sobre o botão */
-  transition: all 0.3s ease; /* Transição suave para efeitos de hover */
+  padding: 6px;
+  font-size: 1rem;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Estilo do hover sobre o campo de input de arquivos */
 .upload-section input[type="file"]:hover {
-  border-color: #95c98d; /* Alterando a cor da borda quando o mouse passa sobre o campo */
+  border-color: #95c98d;
 }
 
-/* Seção para organizar o conteúdo do gráfico e o canvas lado a lado */
 .content-section {
-  display: flex; /* Flexbox para colocar os itens lado a lado */
-  justify-content: space-between; /* Espaça igualmente os itens */
-  gap: 20px; /* Espaço entre os elementos */
-  margin-top: 20px; /* Espaço acima da seção */
-  flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha se necessário */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-/* Estilo para o elemento canvas */
-#canvas {
-  flex: 1; /* Faz o canvas preencher o espaço restante */
-  max-width: 60%; /* Largura máxima de 60% */
-  min-width: 300px; /* Largura mínima de 300px */
-  height: 500px; /* Altura do canvas */
-  border: 2px solid #95c98d; /* Borda verde pastel */
-  border-radius: 8px; /* Bordas arredondadas */
-  background: #ffffff; /* Fundo branco */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+canvas {
+  flex: 1;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border: 2px solid #95c98d; 
+  border-radius: 8px; 
+  background: #ffffff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* Estilo para o gráfico */
 #chart {
-  flex: 1; /* Faz o gráfico preencher o espaço restante */
+  flex: 1;
   max-width: 40%; /* Largura máxima de 40% */
-  min-width: 300px; /* Largura mínima de 300px */
-  height: 350px; /* Altura do gráfico */
-  border: 2px solid #95c98d; /* Borda verde pastel */
-  border-radius: 8px; /* Bordas arredondadas */
-  background: #ffffff; /* Fundo branco */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  display: flex; /* Flexbox para centralizar o gráfico */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  min-width: 520px; /* Largura mínima de 300px */
+  height: 360px; /* Altura do gráfico */
+  padding-top: 5px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border: 2px solid #95c98d; 
+  border-radius: 8px; 
+  background: #ffffff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* Estilo do rodapé da página */
 footer {
-  background-color: #d4edda; /* Cor de fundo verde pastel */
-  color: #444; /* Cor do texto */
-  padding: 10px 0; /* Espaçamento interno */
-  text-align: center; /* Alinha o texto ao centro */
-  border-top: 1px solid #c3e6cb; /* Linha sutil separando o rodapé do conteúdo */
+  background-color: #d4edda;
+  color: #444;
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #c3e6cb;
 }
 
-/* Estilo dos links no rodapé */
 footer a {
-  color: #155724; /* Cor verde escuro */
-  text-decoration: underline; /* Sublinha o texto */
-  font-weight: bold; /* Deixa o texto mais forte */
+  color: #155724;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
-/* Estilo do hover sobre os links no rodapé */
 footer a:hover {
-  color: #0c4227; /* Muda a cor para verde mais escuro ao passar o mouse */
+  color: #0c4227;
 }

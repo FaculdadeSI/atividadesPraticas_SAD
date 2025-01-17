@@ -1,95 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt_br">
   <head>
-    <!-- Definindo o conjunto de caracteres da página como UTF-8 -->
     <meta charset="UTF-8" />
-    <!-- Tornando a página responsiva, ajustando-se ao tamanho da tela do dispositivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grafo Social</title>
-
-    <!-- Incluindo o Font Awesome para usar ícones, neste caso o ícone do GitHub -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-
-    <!-- Vinculando o arquivo de estilos CSS -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Carregando a biblioteca do Google Charts para gerar gráficos -->
-    <script
-      type="text/javascript"
-      src="https://www.gstatic.com/charts/loader.js"
-    ></script>
-
-    <!-- Vinculando o arquivo de script JavaScript -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/> <!-- Font Awesome para usar ícone do GitHub -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> <!-- Biblioteca do Google Charts para gerar gráficos -->
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- Cabeçalho da página -->
+
     <header>
       <div class="container">
-        <!-- Título principal da página -->
         <h1>Grafo Social</h1>
 
-        <!-- Descrição explicando a funcionalidade do site -->
-        <p>Visualize conexões de forma clara e organizada.</p>
-
-        <!-- Ícone do GitHub, clicável e que leva ao repositório do projeto -->
-        <a
-          href="https://github.com/GabriellyVitoria5/Grafo-Social"
-          target="_blank"
-          class="github-icon"
-        >
-          <!-- Ícone do GitHub importado do Font Awesome -->
-          <i
-            class="fab fa-github"
-            style="font-size: 2rem; color: #444; text-decoration: none"
-          ></i>
+        <!-- Ícone do GitHub clicável que leva ao repositório do projeto -->
+        <a href="https://github.com/GabriellyVitoria5/Grafo-Social" target="_blank" class="github-icon">
+          <i class="fab fa-github" style="font-size: 2rem; color: #444; text-decoration: none"></i>
         </a>
       </div>
     </header>
 
-    <!-- Corpo principal da página -->
     <main>
       <div class="container">
-        <!-- Seção de upload de arquivos -->
+
+        <!-- Informar arquivo de texto -->
         <section class="upload-section">
-          <!-- Rótulo para o campo de upload de arquivos -->
           <label for="file-input">Carregue o arquivo com as entradas:</label>
-          <!-- Campo de input para o usuário carregar um arquivo de texto -->
           <input type="file" id="file-input" accept=".txt" />
         </section>
 
-        <!-- Seção para exibir o conteúdo do gráfico e o canvas -->
+        <!-- Canvas com o grafo e o geráfico gerado -->
         <section class="content-section">
-          <!-- Elemento Canvas para exibir um gráfico ou desenho -->
-          <canvas id="canvas" width="800" height="500"></canvas>
-
-          <!-- Div que irá conter o gráfico gerado -->
+          <canvas id="canvas" width="1000" height="600"></canvas>
           <div id="chart"></div>
         </section>
+
       </div>
     </main>
 
-    <!-- Rodapé da página -->
+    <!-- Rodapé com nome das desenvolvedoras e link para seus respectivos github-->
     <footer>
       <div class="container">
-        <!-- Informações de créditos -->
         <p>
           Desenvolvido por
-          <!-- Link para o GitHub de Gabrielle Fonseca -->
-          <a href="https://github.com/GabOof" target="_blank"
-            >Gabrielle Fonseca</a
-          >
+          <a href="https://github.com/GabOof" target="_blank">Gabrielle Fonseca</a>
           e
-          <!-- Link para o GitHub de Gabrielly Vitória -->
-          <a href="https://github.com/GabriellyVitoria5" target="_blank"
-            >Gabrielly Vitória</a
-          >
+          <a href="https://github.com/GabriellyVitoria5" target="_blank">Gabrielly Vitória</a>
         </p>
       </div>
     </footer>
+
   </body>
 </html>
