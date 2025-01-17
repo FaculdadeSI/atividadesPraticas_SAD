@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grafo Social</title>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/> <!-- Font Awesome para usar ícone do GitHub -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> <!-- Biblioteca do Google Charts para gerar gráficos -->
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Grafo Social</h1>
+
+        <!-- Ícone do GitHub clicável que leva ao repositório do projeto -->
+        <a href="https://github.com/GabriellyVitoria5/Grafo-Social" target="_blank" class="github-icon">
+          <i class="fab fa-github" style="font-size: 2rem; color: #444; text-decoration: none"></i>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+
+        <!-- Informar arquivo de texto -->
+        <section class="upload-section">
+          <label for="file-input">Carregue o arquivo com as entradas:</label>
+          <input type="file" id="file-input" accept=".txt" />
+        </section>
+
+        <!-- Canvas com o grafo e o geráfico gerado -->
+        <section class="content-section">
+          <canvas id="canvas" width="800" height="450"></canvas>
+          <div id="chart"></div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Rodapé com nome das desenvolvedoras e link para seus respectivos github-->
+    <footer>
+      <div class="container">
+        <p>
+          Desenvolvido por
+          <a href="https://github.com/GabOof" target="_blank">Gabrielle Fonseca</a>
+          e
+          <a href="https://github.com/GabriellyVitoria5" target="_blank">Gabrielly Vitória</a>
+        </p>
+      </div>
+    </footer>
+
+  </body>
+</html>
